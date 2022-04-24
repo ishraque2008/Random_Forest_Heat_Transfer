@@ -74,7 +74,7 @@ def Random_Forest():
     input_tube_area = 3.444845
 
     st.write('Length of the receiver ', input_length, 'm')
-    st.write('Mass flow rate through tube ', input_massflow, 'kg/s')
+    # st.write('Mass flow rate through tube ', input_massflow, 'kg/s')
     st.write('Density of Air ', input_density, 'kg/m^3')
     st.write('Ambient Temperature ', input_Ta, 'K')
     st.write('Prandtl Number ', input_pr)
