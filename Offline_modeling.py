@@ -1,4 +1,4 @@
-# Author: Ishraque Zaman Borshon
+# Author: : Ishraque Zaman Borshon
 # Oklahoma State University
 # 04/23/2022
 
@@ -19,15 +19,12 @@ dataset = pd.read_csv('Nu_Correlation_Physical_Based_12_removed.csv')
 X = dataset.iloc[:, 1:15].values
 y = dataset.iloc[:, 15:18].values
 
+# st.header("Upward facing Concentrated Solar Power Cavity Receiver: Heat Loss Prediction Software")
+# st.write('Author: Ishraque Zaman Borshon')
+# st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
+#          'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
+# name = st.text_input("Enter your Name: ", key="name")
 
-st.header("Upward facing Concentrated Solar Power Cavity Receiver: Heat Loss Prediction Software")
-st.write('Author: Ishraque Zaman Borshon')
-st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
-         'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
-name = st.text_input("Enter your Name: ", key="name")
-
-if st.checkbox('Show Training Dataframe'):
-    dataset
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
@@ -54,13 +51,13 @@ def Random_Forest():
     st.write('')
     input_g = 9.81
     input_length = 0.5
-    input_massflow = st.slider('Mass Flow Rate (Kg/s ',min_value= min(dataset["Mass Flow Rate"]),
-                               max_value =max(dataset["Mass Flow Rate"]))
+    input_massflow = st.slider('Mass Flow Rate (Kg/s ', min_value=min(dataset["Mass Flow Rate"]),
+                               max_value=max(dataset["Mass Flow Rate"]))
     input_density = 0.6
     input_Ta = 300
     input_Phi = st.slider('Tilt angle(Degree)', -90, 0, 0)
-    input_surface_temp = st.slider('Receiver Surface Temperature (K)', min_value= 520.,
-                                   max_value =max(dataset["Ts"]))
+    input_surface_temp = st.slider('Receiver Surface Temperature (K)', min_value=520.,
+                                   max_value=max(dataset["Ts"]))
     input_avg_temp = (input_Ta + input_surface_temp) / 2
     input_beta = 1 / input_avg_temp
     input_pr = 0.7
@@ -74,7 +71,6 @@ def Random_Forest():
     st.write('Density of Air ', input_density, 'kg/m^3')
     st.write('Ambient Temperature ', input_Ta, 'K')
     st.write('Prandtl Number ', input_pr)
-
 
     if st.button('Make Prediction'):
         # input_species = encoder.transform(np.expand_dims(inp_species, -1))
