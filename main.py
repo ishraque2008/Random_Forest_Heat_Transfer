@@ -80,7 +80,7 @@ def Random_Forest():
         prediction = regressor.predict(inputs)
         conv_loss = prediction[0][0]
         nu_number = prediction[0][1]
-        print("final pred", np.squeeze(prediction, -1))
+        # print("final pred", np.squeeze(prediction, -1))
         st.write(f"Your Convective heat loss is: {conv_loss} W/m^2")  #
         st.write(f"Your Nusselt Number is: {nu_number} ")
 
