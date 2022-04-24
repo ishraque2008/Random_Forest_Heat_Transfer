@@ -10,14 +10,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import  LabelEncoder
+from sklearn.preprocessing import LabelEncoder
 import xgboost as xgb
 import numpy as np
 
 st.header("CSP Receiver Heat Loss Prediction Software")
 st.write('Author: Ishraque Zaman Borshon')
 st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
-                 'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
+         'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
 name = st.text_input("Enter your Name: ", key="name")
 
 # Importing the dataset
@@ -59,13 +59,13 @@ def Random_Forest():
     st.write('')
     input_g = 9.81
     input_length = 0.5
-    input_massflow = st.slider('Mass Flow Rate', min(dataset["Ts"]), max(dataset["Ts"] ))
+    input_massflow = st.slider('Mass Flow Rate', min(dataset["Ts"]), max(dataset["Ts"]))
     input_density = 0.6
     input_Ta = 300
-    input_Phi = st.slider('Tilt angle(Degree)', -90, 0, 0 )
+    input_Phi = st.slider('Tilt angle(Degree)', -90, 0, 0)
     input_surface_temp = st.slider('Receiver Surface Temperature (K)', 520, max(dataset["Ts"]), 973)
-    input_avg_temp = (input_Ta+input_surface_temp)/2
-    input_beta = 1/input_avg_temp
+    input_avg_temp = (input_Ta + input_surface_temp) / 2
+    input_beta = 1 / input_avg_temp
     input_pr = 0.7
     input_vel = 0.00004765
     input_aperture_dia = 0.5
@@ -79,7 +79,6 @@ def Random_Forest():
     st.write('Prandtl Number ', input_pr)
     st.write('Aperture of receiver ', input_aperture_dia, 'm')
 
-
     encoder = LabelEncoder()
     # encoder.classes_ = np.load('classes.npy', allow_pickle=True)
     # # load model
@@ -88,7 +87,8 @@ def Random_Forest():
         # input_species = encoder.transform(np.expand_dims(inp_species, -1))
         inputs = np.expand_dims(
             [input_Phi, input_g, input_length, input_massflow, input_density, input_Ta, input_surface_temp,
-             input_avg_temp,input_beta, input_pr, input_vel, input_aperture_dia, input_aperture_area, input_tube_area  ], 0)
+             input_avg_temp, input_beta, input_pr, input_vel, input_aperture_dia, input_aperture_area, input_tube_area],
+            0)
         prediction = regressor.predict(inputs)
         conv_loss = prediction[0][0]
         nu_number = prediction[0][1]
@@ -97,6 +97,7 @@ def Random_Forest():
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
+
 
 if __name__ == '__main__':
     Random_Forest()
