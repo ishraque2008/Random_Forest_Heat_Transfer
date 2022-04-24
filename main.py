@@ -96,8 +96,8 @@ def Random_Forest():
         nu_number = prediction[0][1]
         h = prediction[0][2]
         # print("final pred", np.squeeze(prediction, -1))
-        st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
-        st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
+        st.write(f"Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
+        st.write(f"Nusselt Number is: {np.round(nu_number)} ")
         st.write(f"Convective heat transfer coefficient is: {np.round(h)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
