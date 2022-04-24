@@ -47,17 +47,9 @@ def Random_Forest():
     from sklearn.ensemble import RandomForestRegressor
     regressor = RandomForestRegressor(n_estimators=10, random_state=30)
 
-    # from sklearn.model_selection
-    # regressor = Regression()
-    # regressor.fit(X_train, y_train)
     regressor.fit(X_train, y_train)
 
     # print('R2 value of the model', regressor.score(X_test, y_test))
-    # prediction = regressor.predict([[-15,9.81,0.5,0.3,0.6,300,773,536.5,0.001863933,0.7,0.00004765,0.5,0.19635,3.444845]])
-    # conv_loss = prediction[0][0]
-    # nu_number = prediction[0][1]
-    # print(conv_loss)
-    # print(nu_number)
 
     st.write('')
     input_g = 9.81
@@ -94,19 +86,20 @@ def Random_Forest():
         conv_loss = prediction[0][0]
         nu_number = prediction[0][1]
         h = prediction[0][2]
-        # print("final pred", np.squeeze(prediction, -1))
         st.write(f"Convective heat loss is: {np.round(conv_loss)} W")  #
         st.write(f"Nusselt Number is: {np.round(nu_number)} ")
         st.write(f"Convective heat transfer coefficient is: {np.round(h)} W/m^2 ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
 
-
+    # Offline Testing
     # inputs = np.expand_dims(
     #     [0,9.81,0.5,0.3,0.6,300,723,511.5,0.001955034,0.7,0.00004765,0.5,0.19635,3.444845],
     #     0)
     # prediction = regressor.predict(inputs)
     # conv_loss = prediction[0][0]
     # print(conv_loss)
+
+
 if __name__ == '__main__':
     Random_Forest()
