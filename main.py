@@ -16,6 +16,8 @@ import numpy as np
 
 st.header("CSP Receiver Heat Loss Prediction Software")
 st.write('Author: Ishraque Zaman Borshon')
+st.write('Source: \"Borshon, Ishraque, 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
+                 'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
 name = st.text_input("Enter your Name: ", key="name")
 
 # Importing the dataset
@@ -95,8 +97,6 @@ def Random_Forest():
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
-        st.write('Source: \"Borshon, I, 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
-                 'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
 
 if __name__ == '__main__':
     Random_Forest()
