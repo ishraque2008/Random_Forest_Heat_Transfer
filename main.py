@@ -55,7 +55,7 @@ def Random_Forest():
 
     st.write('')
     input_g = 9.81
-    imput_length = 0.5
+    input_length = 0.5
     input_massflow = 0.3
     input_density = 0.6
     input_Ta = 300
@@ -69,6 +69,14 @@ def Random_Forest():
     input_aperture_area = 0.19635
     input_tube_area = 3.444845
 
+    st.write('Length of the receiver ', input_length)
+    st.write('Mass flow rate through tube ', input_massflow)
+    st.write('Density of Air ', input_density)
+    st.write('Ambient Temperature ', input_Ta)
+    st.write('Prandtl Number ', input_pr)
+    st.write('Aperture of receiver ', input_aperture_dia)
+
+
     encoder = LabelEncoder()
     # encoder.classes_ = np.load('classes.npy', allow_pickle=True)
     # # load model
@@ -76,7 +84,7 @@ def Random_Forest():
     if st.button('Make Prediction'):
         # input_species = encoder.transform(np.expand_dims(inp_species, -1))
         inputs = np.expand_dims(
-            [input_Phi, input_g, imput_length, input_massflow, input_density, input_Ta, input_surface_temp,
+            [input_Phi, input_g, input_length, input_massflow, input_density, input_Ta, input_surface_temp,
              input_avg_temp,input_beta, input_pr, input_vel, input_aperture_dia, input_aperture_area, input_tube_area  ], 0)
         prediction = regressor.predict(inputs)
         conv_loss = prediction[0][0]
@@ -85,6 +93,7 @@ def Random_Forest():
         st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
+        st.write('I hope the app was helpful')
 
 if __name__ == '__main__':
     Random_Forest()
