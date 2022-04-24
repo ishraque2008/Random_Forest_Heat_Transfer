@@ -28,7 +28,7 @@ X = dataset.iloc[:, 1:15].values
 y = dataset.iloc[:, 15:18].values
 
 if st.checkbox('Show dataframe'):
-    dataset
+    dataset.show()
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
