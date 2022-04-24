@@ -77,7 +77,7 @@ def Random_Forest():
         inputs = np.expand_dims(
             [input_Phi, input_g, imput_length, input_massflow, input_density, input_Ta, input_surface_temp,
              input_avg_temp,input_beta, input_pr, input_vel, input_aperture_dia, input_aperture_area, input_tube_area  ], 0)
-        prediction = best_xgboost_model.predict(inputs)
+        prediction = regressor.predict(inputs)
         conv_loss = prediction[0][0]
         nu_number = prediction[0][1]
         print("final pred", np.squeeze(prediction, -1))
