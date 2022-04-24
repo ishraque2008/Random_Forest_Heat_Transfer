@@ -58,7 +58,7 @@ def Random_Forest():
     input_massflow = 0.3
     input_density = 0.6
     input_Ta = 300
-    input_Phi = st.slider('Tilt angle(Degree)', 0, max(dataset["Tilt"]), 1)
+    input_Phi = st.slider('Tilt angle(Degree)', min(dataset["Tilt"], 0 ), 1)
     input_surface_temp = st.slider('Receiver Surface Temperature (K)', 520, max(dataset["Ts"]), 1)
     input_avg_temp = (input_Ta+input_surface_temp)/2
     input_beta = 1/input_avg_temp
