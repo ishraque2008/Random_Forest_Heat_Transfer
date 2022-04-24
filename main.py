@@ -69,12 +69,12 @@ def Random_Forest():
     input_aperture_area = 0.19635
     input_tube_area = 3.444845
 
-    st.write('Length of the receiver ', input_length)
-    st.write('Mass flow rate through tube ', input_massflow)
-    st.write('Density of Air ', input_density)
-    st.write('Ambient Temperature ', input_Ta)
+    st.write('Length of the receiver ', input_length, 'm')
+    st.write('Mass flow rate through tube ', input_massflow, 'kg/s')
+    st.write('Density of Air ', input_density, 'kg/m^3')
+    st.write('Ambient Temperature ', input_Ta, 'K')
     st.write('Prandtl Number ', input_pr)
-    st.write('Aperture of receiver ', input_aperture_dia)
+    st.write('Aperture of receiver ', input_aperture_dia, 'm')
 
 
     encoder = LabelEncoder()
