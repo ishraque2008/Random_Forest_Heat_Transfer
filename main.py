@@ -25,8 +25,9 @@ st.write('Author: Ishraque Zaman Borshon')
 st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
          'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
 name = st.text_input("Enter your Name: ", key="name")
-if st.checkbox('Show dataframe'):
-    dataset.head()
+
+if st.checkbox('Show Training Dataframe'):
+    dataset
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
