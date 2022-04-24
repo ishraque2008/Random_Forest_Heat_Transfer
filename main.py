@@ -20,10 +20,15 @@ st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver
          'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
 name = st.text_input("Enter your Name: ", key="name")
 
+
+
 # Importing the dataset
-dataset = pd.read_csv('Nu_Correlation_Physical_Based.csv')
+dataset = pd.read_csv('Nu_Correlation_Physical_Based_12_removed.csv')
 X = dataset.iloc[:, 1:15].values
 y = dataset.iloc[:, 15:18].values
+
+if st.checkbox('Show dataframe'):
+    dataset
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
@@ -74,16 +79,11 @@ def Random_Forest():
     input_tube_area = 3.444845
 
     st.write('Length of the receiver ', input_length, 'm')
-    # st.write('Mass flow rate through tube ', input_massflow, 'kg/s')
+    st.write('Aperture of receiver ', input_aperture_dia, 'm')
     st.write('Density of Air ', input_density, 'kg/m^3')
     st.write('Ambient Temperature ', input_Ta, 'K')
     st.write('Prandtl Number ', input_pr)
-    st.write('Aperture of receiver ', input_aperture_dia, 'm')
 
-    encoder = LabelEncoder()
-    # encoder.classes_ = np.load('classes.npy', allow_pickle=True)
-    # # load model
-    best_xgboost_model = xgb.XGBRegressor()
 
     if st.button('Make Prediction'):
         # input_species = encoder.transform(np.expand_dims(inp_species, -1))
@@ -102,13 +102,6 @@ def Random_Forest():
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
 
-    # inputs =np.expand_dims([0,9.81,0.5,0.3,0.6,300,723,511.5,0.001955034,0.7,0.00004765,0.5,0.19635,3.444845],0)
-    # print(inputs.shape)
-    # prediction = regressor.predict(inputs)
-    # conv_loss = prediction[0][0]
-    # print(prediction[0][1])
-    # print(prediction[0][2])
-    # print(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")
 
 if __name__ == '__main__':
     Random_Forest()
