@@ -14,7 +14,7 @@ from sklearn.preprocessing import  LabelEncoder
 import xgboost as xgb
 import numpy as np
 
-st.header("CSP Receiver Heat Loss Prediction App")
+st.header("CSP Receiver Heat Loss Prediction Software")
 st.write('Author: Ishraque Zaman Borshon')
 name = st.text_input("Enter your Name: ", key="name")
 
@@ -94,7 +94,7 @@ def Random_Forest():
         st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
-        st.write('I hope the app was helpful.')
+        st.write('I hope the software was helpful.')
 
 if __name__ == '__main__':
     Random_Forest()
