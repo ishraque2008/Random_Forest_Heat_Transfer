@@ -20,7 +20,7 @@ X = dataset.iloc[:, 1:15].values
 y = dataset.iloc[:, 15:18].values
 
 
-st.header("Upward facing Concentrated Solar Power Cavity Receiver Heat Loss Prediction Software")
+st.header("Upward facing Concentrated Solar Power Cavity Receiver: Heat Loss Prediction Software")
 st.write('Author: Ishraque Zaman Borshon')
 st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver for Scheffler\'s Concentrator. '
          'M.Tech. Thesis, Indian Institute of Technology, Bombay.\" ')
