@@ -23,7 +23,7 @@ name = st.text_input("Enter your Name: ", key="name")
 # Importing the dataset
 dataset = pd.read_csv('Nu_Correlation_Physical_Based.csv')
 X = dataset.iloc[:, 1:-2].values
-y = dataset.iloc[:, 15:17].values
+y = dataset.iloc[:, 15:18].values
 
 
 def Random_Forest():
