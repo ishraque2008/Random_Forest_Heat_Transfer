@@ -82,7 +82,7 @@ def Random_Forest():
         nu_number = prediction[0][1]
         # print("final pred", np.squeeze(prediction, -1))
         st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
-        st.write(f"Your Nusselt Number is: {nu_number} ")
+        st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
 
 if __name__ == '__main__':
     Random_Forest()
