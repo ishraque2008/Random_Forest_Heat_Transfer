@@ -13,8 +13,9 @@ import pandas as pd
 from sklearn.preprocessing import  LabelEncoder
 import xgboost as xgb
 import numpy as np
-st.header("Heat Loss Prediction App")
-st.text_input("Enter your Name: ", key="name")
+
+st.header("CSP Receiver Heat Loss Prediction App")
+name = st.text_input("Enter your Name: ", key="name")
 
 # Importing the dataset
 dataset = pd.read_csv('Nu_Correlation_Physical_Based.csv')
@@ -52,7 +53,7 @@ def Random_Forest():
     # print(conv_loss)
     # print(nu_number)
 
-
+    st.write('')
     input_g = 9.81
     imput_length = 0.5
     input_massflow = 0.3
@@ -83,6 +84,7 @@ def Random_Forest():
         # print("final pred", np.squeeze(prediction, -1))
         st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
+        st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
 
 if __name__ == '__main__':
     Random_Forest()
