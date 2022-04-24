@@ -22,9 +22,8 @@ name = st.text_input("Enter your Name: ", key="name")
 
 # Importing the dataset
 dataset = pd.read_csv('Nu_Correlation_Physical_Based.csv')
-X = dataset.iloc[:, 1:-2].values
+X = dataset.iloc[:, 1:15].values
 y = dataset.iloc[:, 15:18].values
-
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
@@ -85,6 +84,7 @@ def Random_Forest():
     # encoder.classes_ = np.load('classes.npy', allow_pickle=True)
     # # load model
     best_xgboost_model = xgb.XGBRegressor()
+
     if st.button('Make Prediction'):
         # input_species = encoder.transform(np.expand_dims(inp_species, -1))
         inputs = np.expand_dims(
@@ -94,12 +94,21 @@ def Random_Forest():
         prediction = regressor.predict(inputs)
         conv_loss = prediction[0][0]
         nu_number = prediction[0][1]
+        h = prediction[0][2]
         # print("final pred", np.squeeze(prediction, -1))
         st.write(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")  #
         st.write(f"Your Nusselt Number is: {np.round(nu_number)} ")
+        st.write(f"Convective heat transfer coefficient is: {np.round(h)} ")
         st.write(f'Hey {name}, Best of luck on your CSP Receiver designing!')
         st.write('I hope the software was helpful.')
 
+    # inputs =np.expand_dims([0,9.81,0.5,0.3,0.6,300,723,511.5,0.001955034,0.7,0.00004765,0.5,0.19635,3.444845],0)
+    # print(inputs.shape)
+    # prediction = regressor.predict(inputs)
+    # conv_loss = prediction[0][0]
+    # print(prediction[0][1])
+    # print(prediction[0][2])
+    # print(f"Your Convective heat loss is: {np.round(conv_loss)} W/m^2")
 
 if __name__ == '__main__':
     Random_Forest()
