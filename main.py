@@ -55,7 +55,7 @@ def Random_Forest():
     st.write('')
     input_g = 9.81
     input_length = 0.5
-    input_massflow = st.slider('Mass Flow Rate (Kg/s) ',min_value= min(dataset["Mass Flow Rate"]),
+    input_massflow = st.slider('Fluid Mass Flow Rate inside tube (Kg/s) ',min_value= min(dataset["Mass Flow Rate"]),
                                max_value =max(dataset["Mass Flow Rate"]))
     input_density = 0.6
     input_Ta = 300
