@@ -27,7 +27,7 @@ st.write('Source: \"Borshon, I. Z., 2021. Study of Upward facing cavity receiver
 name = st.text_input("Enter your Name: ", key="name")
 
 if st.checkbox('Show Training Dataframe'):
-    dataset.head()
+    dataset.head(5)
 
 def Random_Forest():
     # Splitting the dataset into the Training set and Test set
